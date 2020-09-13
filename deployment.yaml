@@ -30,6 +30,6 @@ spec:
       containers:
       - name: capstone
         image: agilealchemy/capstone
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
