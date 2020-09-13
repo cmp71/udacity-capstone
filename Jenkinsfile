@@ -13,7 +13,8 @@ pipeline {
     }
     stage('Push Docker image') {
       steps {
-        sh "docker login && docker image tag capstone agilealchemy/capstone:latest && docker push agilealchemy/capstone"
+        sh "docker image tag capstone agilealchemy/capstone:latest"
+        sh "docker push agilealchemy/capstone"
       }
     }
   }
