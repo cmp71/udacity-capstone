@@ -22,7 +22,8 @@ pipeline {
     stage('Deploy to AWS Kubernetes') {
       steps {
         withAWS(region: 'us-west-2', credentials: 'aws') {
-          sh 'aws eks --region us-west-2 update-kubeconfig --name eksctltest'
+          sh "aws eks --region us-west-2 update-kubeconfig --name eksctltest"
+          sh "aws eks apply -f deployment.yaml"
         }
       }
     }
