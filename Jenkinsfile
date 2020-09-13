@@ -5,10 +5,6 @@ pipeline {
       steps {
         sh "make setup"
         sh "make install"
-      }
-    }
-    stage('Linting') {
-      steps {
         sh "make lint"
       }
     }
