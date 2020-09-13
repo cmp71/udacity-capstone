@@ -13,8 +13,10 @@ pipeline {
     }
     stage('Push Docker image') {
       steps {
-        sh "docker image tag capstone agilealchemy/capstone:latest"
-        sh "docker push agilealchemy/capstone"
+        withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
+          sh "docker image tag capstone agilealchemy/capstone"
+          sh "docker push agilealchemy/capstone"
+        }  
       }
     }
   }
