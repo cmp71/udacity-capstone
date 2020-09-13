@@ -4,6 +4,7 @@ pipeline {
     stage('Prep venv') {
       steps {
         sh "make setup"
+        sh "make install"
       }
     }
     stage('Linting') {
