@@ -1,10 +1,8 @@
 pipeline {
   agent any
   stages {
-    stage('Prep venv') {
+    stage('Linting') {
       steps {
-        sh "make setup"
-        sh "make install"
         sh "make lint"
       }
     }

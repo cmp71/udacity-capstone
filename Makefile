@@ -8,7 +8,7 @@ setup:
 	# Create python virtualenv & source it
 	python3 -m venv ~/.udacity-capstone
 	# source ~/.udacity-capstone/bin/activate
-	. ~/.udacity-capstone/bin/activate
+	# . ~/.udacity-capstone/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
