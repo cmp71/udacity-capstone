@@ -5,6 +5,7 @@ pipeline {
   stages {
     stage('Linting') {
       steps {
+        echo "Linting...."
         //sh "make lint"
       }
     }
