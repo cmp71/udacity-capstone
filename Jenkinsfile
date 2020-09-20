@@ -25,7 +25,8 @@ pipeline {
     stage('Deploy to AWS Kubernetes') {
       steps {
         withAWS(region: 'us-west-2', credentials: 'aws') {
-          // sh "aws eks --region us-west-2 update-kubeconfig --name eksctltest"
+          sh "aws eks --region us-west-2 update-kubeconfig --name capstone"
+          sh "kubectl config use-context arn:aws:eks:us-west-2:679167268608:cluster/capstone"
           // sh "kubectl apply -f deployment.yaml"
         }
       }
