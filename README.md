@@ -57,3 +57,19 @@ Strategy chosen is Rolling Deployment.
 This is achieved via setting `strategy.type` to `RollingUpdate` in [deployment.yaml](https://github.com/cmp71/udacity-capstone/blob/master/deployment.yaml) which is used as in input file to `kubectl apply`.
 
 The rolling update is initiated by running the command `kubectl rollout restart deployment capstone` as part of the pipeline.
+
+Version 1.0 of the website:
+
+![alt-text](https://github.com/cmp71/udacity-capstone/blob/master/output/Screenshot%202020-09-20%20231030.png "Website version 1.0")
+
+Editing website html to version 2.0:
+
+![alt-text](https://github.com/cmp71/udacity-capstone/blob/master/output/Screenshot%202020-09-20%20231635.png "Editing website to version 2.0")
+
+Followed by a successful build and re-deployment to Kubernetes in AWS:
+
+![alt-text](https://github.com/cmp71/udacity-capstone/blob/master/output/Screenshot%202020-09-20%20231845.png "Successful build and re-deploy")
+
+Version 2.0 of the website now running:
+
+![alt-text](https://github.com/cmp71/udacity-capstone/blob/master/output/Screenshot%202020-09-20%20232006.png "Website version 2.0")
