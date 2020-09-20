@@ -5,8 +5,8 @@ pipeline {
   stages {
     stage('Linting') {
       steps {
-        echo "Linting...."
-        //sh "make lint"
+        echo "Linting our html file(s) with tidy."
+        sh "make lint"
       }
     }
     stage('Build Docker image') {
