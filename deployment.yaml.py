@@ -7,8 +7,8 @@ spec:
     app: capstone
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 6000
+    targetPort: 5000
   type: LoadBalancer
 
 
@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: capstone
-        image: agilealchemy/capstone-nginx
+        image: agilealchemy/capstone
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 5000

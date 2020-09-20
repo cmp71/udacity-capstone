@@ -5,20 +5,19 @@ pipeline {
   stages {
     stage('Linting') {
       steps {
-        sh "make lint"
+        //sh "make lint"
       }
     }
     stage('Build Docker image') {
       steps {
-        sh "docker build --tag=capstone:${BUILD_NUMBER} ."
+        sh "docker build --tag=capstone-nginx:${BUILD_NUMBER} ."
       }
     }
     stage('Push Docker image') {
       steps {
         withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-          sh "docker image tag capstone:${BUILD_NUMBER} agilealchemy/capstone"
-          sh "docker push agilealchemy/capstone"
-          sh "docker image prune -f"
+          sh "docker image tag capstone-nginx:${BUILD_NUMBER} agilealchemy/capstone-nginx"
+          sh "docker push agilealchemy/capstone-nginx"
         }  
       }
     }

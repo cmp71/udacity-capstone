@@ -1,10 +1,7 @@
-FROM python:3.7
+FROM nginx:stable
 
-RUN mkdir /app
-WORKDIR /app
-COPY . /app/
-RUN pip install -r requirements.txt
+COPY index.html /var/www/html/
 
-EXPOSE 5000
-CMD ["python", "app/main.py"]
+EXPOSE 80
 
+CMD ["nginx", "-g", "daemon off;"]
