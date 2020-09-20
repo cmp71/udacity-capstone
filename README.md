@@ -45,4 +45,15 @@ It is then uploaded to Docker Hub with the following section of the Jenkinsfile:
 ```
 
 ### The Docker container is deployed to a Kubernetes cluster. The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
+Kubernetes cluster was deployed to AWS from the CLI using EKSCTL. The command to do so is within [createEKScluster.sh](https://github.com/cmp71/udacity-capstone/blob/master/createEKScluster.sh)
+
+Output of the cluster build script -
+
+![alt-text](https://github.com/cmp71/udacity-capstone/blob/master/output/Screenshot%202020-09-20%20200959.png "Cluster build")
+
 ### Use Blue/Green Deployment or a Rolling Deployment successfully. The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
+Strategy chosen is Rolling Deployment.
+
+This is achieved via setting `strategy.type` to `RollingUpdate` in [deployment.yaml](https://github.com/cmp71/udacity-capstone/blob/master/deployment.yaml) which is used as in input file to `kubectl apply`.
+
+The rolling update is initiated by running the command `kubectl rollout restart deployment capstone` as part of the pipeline.
