@@ -27,12 +27,8 @@ pipeline {
         withAWS(region: 'us-west-2', credentials: 'aws') {
           sh "aws eks --region us-west-2 update-kubeconfig --name capstone"
           sh "kubectl config use-context arn:aws:eks:us-west-2:679167268608:cluster/capstone"
-          // sh "kubectl set image deployments/capstone capstone=agilealchemy/capstone-nginx:latest"
           sh "kubectl apply -f deployment.yaml"
-          sh "kubectl get nodes"
-          sh "kubectl get deployment"
-          sh "kubectl get pod -o wide"
-          sh "kubectl get service/capstone-service"
+          sh "kubectl rollout restart deployment capstone"
         }
       }
     }
