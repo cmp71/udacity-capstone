@@ -18,6 +18,7 @@ pipeline {
         withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
           sh "docker image tag capstone:${BUILD_NUMBER} agilealchemy/capstone"
           sh "docker push agilealchemy/capstone"
+          sh "docker image prune -f"
         }  
       }
     }
